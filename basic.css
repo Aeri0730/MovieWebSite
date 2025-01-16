@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  font-family: "Josefin Sans", serif;
+  background-color: rgb(131, 45, 45);
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+header {
+  background-color: rgb(78, 9, 9);
+  display: flex; /* Flexbox 활성화 */
+  align-items: center; /* 세로 정렬: 가운데 정렬 */
+  gap: 10px; /* 이미지와 텍스트 사이 간격 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+header img {
+  background-color: rgb(78, 9, 9);
+  margin-left: 100px;
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.09);
+}
+
+header img:hover {
+  /* hover: 사용자가 마우스를 요소 위에 올려놓았을때 */
+  transform: scale(1.1);
+}
+header h1 {
+  background-color: rgb(78, 9, 9);
+  color: rgba(0, 0, 0, 0.753);
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.09);
+}
+h1:hover {
+  /* hover: 사용자가 마우스를 요소 위에 올려놓았을때 */
+  transform: scale(1.1);
+}
+.search-Bar {
+  background-color: rgb(78, 9, 9);
+  margin-left: auto; /* 자동 여백으로 오른쪽 정렬 */
+  margin-right: 151px; /* 오른쪽 끝 여백 */
+  padding: 8px;
+  border-radius: 4px;
+  align-items: center;
+  display: flex;
+}
+.search-icon {
+  background-color: rgb(78, 9, 9);
+  font-size: 24px; /* 아이콘 크기 */
+  color: #757575; /* 아이콘 색상 */
+  margin-right: 8px; /* 아이콘과 텍스트 간 간격 */
+}
+.search-Bar input {
+  background-color: white;
+  width: 200px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 10px;
+  text-align: left;
+}
+main {
+  background-color: rgb(131, 45, 45);
+}
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* repeat(auto-fill,...) => 가로 공간에 맞는 한 최대한 많은 열을 생성
+      minmax() => 열의 최소 및 최대 크기를 설정합니다. 열의 최소 너비를 200px, 1fr은 남아 있는 공간을 다른 열과 균등하게 나누는 비율율
+    */
+  gap: 20px;
+}
+.movie {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.movie:hover {
+  /* hover: 사용자가 마우스를 요소 위에 올려놓았을때때 */
+  transform: scale(1.05); /* 1.05배 비율로 확대  */
+}
+.no-hover .movie:hover {
+  transform: none !important; /* transform 효과 제거 */
+  pointer-events: none; /* 마우스 이벤트 무시 (선택적) */
+}
+.movie img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.movie-details {
+  background-color: white;
+  padding: 15px;
+}
+.movie-title {
+  background-color: white;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.movie-rating {
+  background-color: white;
+  font-weight: bold;
+  color: #f39c12;
+}
+.modal {
+  /*팝업 배경*/
+  display: none; /* 평소에는 보이지 않도록 */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal .modal_popup {
+  /*팝업*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+}
+.modal .modal_popup .close_btn {
+  display: block;
+  padding: 10px 20px;
+  background-color: rgb(116, 0, 0);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.popup-content {
+  padding: 10px;
+  border-radius: 8px;
+}
+.popup-img {
+  background-color: white;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.popup-img img {
+  width: 100%;
+  height: 300px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.popup-content .movie-overview {
+  background-color: white;
+  font-size: 24px;
+  height: 80%;
+}
+.popup-details {
+  background-color: white;
+  padding: 9px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.popup-title {
+  background-color: white;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.mov_info1 {
+  background-color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-size: 0.8rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mov_info1 li {
+  background-color: white;
+  margin-left: 0;
+  padding-left: 0;
+  display: inline-block;
+  position: relative;
+  unicode-bidi: isolate;
+  list-style: none;
+}
+.mov_info1 span {
+  background-color: white;
+}
+.popup-overview {
+  background-color: white;
+  height: 80px;
+  font-size: 0.8rem;
+  color: #321f1f;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+}
+.popup-rating {
+  background-color: white;
+  font-weight: bold;
+  color: #f39c12;
+}
+.popup-details .rating {
+  background-color: white;
+  font-weight: bold;
+  color: #f39c12;
+  margin-left: 5px;
+}
