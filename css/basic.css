@@ -127,6 +127,8 @@ main {
   overflow: hidden;
   background-color: white;
   background: rgba(0, 0, 0, 0.5);
+  opacity:0.95;
+
 }
 .modal .modal_popup {
   /*팝업*/
